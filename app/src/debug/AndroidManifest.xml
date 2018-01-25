@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name="me.cafecode.octomeow.TestFragmentActivity"></activity>
+    </application>
+</manifest>
