@@ -37,7 +37,7 @@ class RepoListViewModelTest {
         val repos = (1..20).map { Repo(id = it) }
         `when`(repoRepository.getRepositories())
                 .thenReturn(Flowable.just(repos.filter { it.id in 1..5 }))
-        `when`(repoRepository.getNextReppositories("5"))
+        `when`(repoRepository.getNextRepositories("5"))
                 .thenReturn(Flowable.just(repos.filter { it.id in 6..10 }))
 
         viewModel.refreshRepos()

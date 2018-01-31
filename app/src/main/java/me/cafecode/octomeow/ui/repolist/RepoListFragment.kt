@@ -45,7 +45,6 @@ class RepoListFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        (activity?.application as OctomeowApplication).component.inject(this)
         viewModel = ViewModelProviders.of(this, factory).get(RepoListViewModel::class.java)
         binding.repoList.layoutManager = LinearLayoutManager(context)
         binding.repoList.adapter = adapter

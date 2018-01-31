@@ -11,7 +11,6 @@ open class RepoRepository @Inject constructor(val api: GithubApi) {
     open fun getRepositories(): Flowable<List<Repo>> =
             api.getRepositories().map { it }
 
-    open fun getNextReppositories(since: String): Flowable<List<Repo>> =
+    open fun getNextRepositories(since: String): Flowable<List<Repo>> =
             api.getNextPageRepositories(since)
-
 }

@@ -4,7 +4,7 @@ import android.app.Application
 import me.cafecode.octomeow.di.AppComponent
 import me.cafecode.octomeow.di.AppModule
 import me.cafecode.octomeow.di.DaggerAppComponent
-import me.cafecode.repository.di.RepositoryModule
+import me.cafecode.repository.RepositoryModule
 
 
 class OctomeowApplication : Application() {

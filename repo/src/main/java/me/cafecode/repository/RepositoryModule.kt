@@ -1,4 +1,4 @@
-package me.cafecode.repository.di
+package me.cafecode.repository
 
 import android.app.Application
 import com.google.gson.Gson
@@ -21,14 +21,14 @@ open class RepositoryModule(app: Application) {
 
     @Singleton
     @Provides
-    open fun provideRetrofit(): Retrofit = Retrofit.Builder()
+    open fun provideRetrofit(gson: Gson): Retrofit = Retrofit.Builder()
             .baseUrl("https://api.github.com/")
-            .addConverterFactory(GsonConverterFactory.create(provideGson()))
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
 
     @Singleton
     @Provides
-    open fun provideGithubApi(): GithubApi = provideRetrofit().create(GithubApi::class.java)
+    open fun provideGithubApi(retrofit: Retrofit): GithubApi = retrofit.create(GithubApi::class.java)
 
 }
