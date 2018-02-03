@@ -9,7 +9,11 @@ import javax.inject.Singleton
 @Module
 open class AppModule {
 
-    @Singleton
     @Provides
-    fun provideScheduler(): BaseScheduler = Scheduler()
+    @Singleton
+    open fun provideScheduler(): BaseScheduler = Scheduler()
+
+    @Provides
+    @Singleton
+    open fun provideHostName(): String = "api.github.con/"
 }

@@ -14,7 +14,7 @@ android {
         targetSdkVersion target_sdk_version
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "me.cafecode.octomeow.TestAppRunner"
     }
     buildTypes {
         release {
@@ -79,9 +79,10 @@ dependencies {
     // Dependency injection
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
-    testImplementation "com.google.dagger:dagger:$dagger_version"
-    kaptTest "com.google.dagger:dagger-compiler:$dagger_version"
+    androidTestImplementation "com.google.dagger:dagger:$dagger_version"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
 
     // Repository
     implementation project(':repo')
+    androidTestImplementation project(':repo')
 }
