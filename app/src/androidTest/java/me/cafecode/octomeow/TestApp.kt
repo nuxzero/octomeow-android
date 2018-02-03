@@ -7,9 +7,10 @@ class TestApp : OctomeowApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        component = DaggerTestAppComponent.builder()
+        DaggerTestAppComponent.builder()
                 .appModule(TestAppModule())
                 .repositoryModule(RepositoryModule(this))
                 .build()
+                .inject(this)
     }
 }
