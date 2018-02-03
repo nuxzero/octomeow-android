@@ -3,6 +3,7 @@ package me.cafecode.octomeow.ui.repolist
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Transformations
+import me.cafecode.octomeow.extension.addTo
 import me.cafecode.octomeow.model.ObservingResult
 import me.cafecode.octomeow.scheduler.BaseScheduler
 import me.cafecode.octomeow.ui.base.BaseViewModel
@@ -25,15 +26,14 @@ open class RepoListViewModel @Inject constructor(
 //        Completable.create { reposObserveData.postValue(ObservingResult.Loading(null)) }
 
 //        reposObserveData.value = ObservingResult.Loading(null)
-        disposable.add(
-                repoRepository.getRepositories()
-                        .subscribeOn(scheduler.io())
-                        .observeOn(scheduler.ui())
-                        .subscribe(
-                                { reposObserveData.postValue(ObservingResult.Success(it)) },
-                                { reposObserveData.postValue(ObservingResult.Failure(it)) }
-                        )
-        )
+        repoRepository.getRepositories()
+                .subscribeOn(scheduler.io())
+                .observeOn(scheduler.ui())
+                .subscribe(
+                        { reposObserveData.postValue(ObservingResult.Success(it)) },
+                        { reposObserveData.postValue(ObservingResult.Failure(it)) }
+                )
+                .addTo(disposable)
     }
 
     fun loadNextPage() {
