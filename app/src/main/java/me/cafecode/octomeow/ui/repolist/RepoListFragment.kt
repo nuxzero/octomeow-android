@@ -26,6 +26,8 @@ class RepoListFragment : BaseFragment() {
     lateinit var viewModel: RepoListViewModel
     private val adapter: RepoListAdapter by lazy { RepoListAdapter() }
 
+    @Inject lateinit var hostname: String
+
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         if (context is OnFragmentInteractionListener) {
