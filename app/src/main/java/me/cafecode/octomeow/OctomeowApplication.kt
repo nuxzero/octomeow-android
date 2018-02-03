@@ -7,7 +7,7 @@ import me.cafecode.octomeow.di.DaggerAppComponent
 import me.cafecode.repository.RepositoryModule
 
 
-class OctomeowApplication : Application() {
+open class OctomeowApplication : Application() {
 
     lateinit var component: AppComponent
 

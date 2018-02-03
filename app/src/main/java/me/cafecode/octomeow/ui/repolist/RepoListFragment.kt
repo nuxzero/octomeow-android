@@ -21,7 +21,6 @@ import javax.inject.Inject
 
 class RepoListFragment : BaseFragment() {
 
-    @Inject lateinit var factory: ViewModelProvider.Factory
     private var listener: OnFragmentInteractionListener? = null
     lateinit var binding: RepoListFragmentBinding
     lateinit var viewModel: RepoListViewModel
@@ -53,7 +52,7 @@ class RepoListFragment : BaseFragment() {
             viewModel.refreshRepos()
         }
 
-        viewModel.reposData?.observe(this, Observer { result ->
+        viewModel.reposData.observe(this, Observer { result ->
             when (result) {
                 is ObservingResult.Loading<List<Repo>> -> Toast.makeText(context, "Start loading...", Toast.LENGTH_SHORT).show()
                 is ObservingResult.Success<List<Repo>> -> adapter.repos = result.data
