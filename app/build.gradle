@@ -47,6 +47,7 @@ dependencies {
     // Architecture components
     implementation "android.arch.lifecycle:runtime:$arch_version"
     implementation "android.arch.lifecycle:extensions:$arch_version"
+    implementation 'com.android.support:support-v4:27.0.2'
     kapt "android.arch.lifecycle:compiler:$arch_version"
     testImplementation("android.arch.core:core-testing:$arch_version", {
         exclude group: 'com.android.support', module: 'support-compat'
@@ -62,8 +63,8 @@ dependencies {
     testImplementation "com.squareup.okhttp3:mockwebserver:$mockwebserver_version"
 
     // Instrument test
-    androidTestImplementation "com.android.support.test:runner:$test_runner_version"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     // RxAndroid and RxJava
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid2_version"
@@ -77,11 +78,8 @@ dependencies {
 
     // Dependency injection
     implementation "com.google.dagger:dagger:$dagger_version"
-    implementation "com.google.dagger:dagger-android-support:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
-    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
     androidTestImplementation "com.google.dagger:dagger:$dagger_version"
-    androidTestImplementation "com.google.dagger:dagger-android-support:$dagger_version"
     kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
 
     // Repository

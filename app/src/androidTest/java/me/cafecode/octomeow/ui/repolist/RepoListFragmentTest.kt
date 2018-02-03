@@ -3,8 +3,6 @@ package me.cafecode.octomeow.ui.repolist
 import android.support.test.InstrumentationRegistry
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
-import dagger.android.AndroidInjection
-import dagger.android.support.AndroidSupportInjection
 import me.cafecode.octomeow.TestApp
 import me.cafecode.octomeow.TestAppComponent
 import me.cafecode.octomeow.ui.main.MainActivity
@@ -23,14 +21,14 @@ class RepoListFragmentTest {
     @JvmField
     val activityRule = ActivityTestRule(MainActivity::class.java, true, true)
 
-//    @Inject
-//    lateinit var hostname: String
-
-    lateinit var fragment: RepoListFragment
+    @Inject
+    lateinit var hostname: String
 
     @Before
     fun setUp() {
-        fragment = (activityRule.activity as MainActivity).supportFragmentManager.fragments[0] as RepoListFragment
+        val app = (InstrumentationRegistry.getTargetContext().applicationContext as TestApp)
+        (app.component as TestAppComponent)
+                .inject(this)
     }
 
     @After
@@ -39,6 +37,6 @@ class RepoListFragmentTest {
 
     @Test
     fun checkHostName() {
-        assertEquals("api.testgithub.com/", fragment.hostname)
+        assertEquals("api.testgithub.com/", hostname)
     }
 }
