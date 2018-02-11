@@ -46,6 +46,8 @@ dependencies {
 
     // Serializer
     implementation "com.google.code.gson:gson:$gson_version"
+    implementation "org.parceler:parceler-api:$parceler_version"
+    kapt "org.parceler:parceler:$parceler_version"
 
     // Dependency injection
     implementation "com.google.dagger:dagger:$dagger_version"

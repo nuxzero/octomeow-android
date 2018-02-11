@@ -2,11 +2,12 @@ package me.cafecode.octomeow.ui.main
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import me.cafecode.octomeow.R
 import me.cafecode.octomeow.ui.repolist.RepoListFragment
+import me.cafecode.repository.model.Repo
 
 class MainActivity : AppCompatActivity(), RepoListFragment.OnFragmentInteractionListener {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity(), RepoListFragment.OnFragmentInteraction
         }
     }
 
-    override fun onFragmentInteraction() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onRepoItemClickListener(repo: Repo) {
+        Log.d("Repo", repo.fullName)
     }
 }
