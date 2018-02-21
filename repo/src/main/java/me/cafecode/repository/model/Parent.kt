@@ -1,7 +1,9 @@
 package me.cafecode.repository.model
 
 import com.google.gson.annotations.SerializedName
+import org.parceler.Parcel
 
+@Parcel
 data class Parent(
 
         @field:SerializedName("stargazers_count")
@@ -14,7 +16,7 @@ data class Parent(
         val subscriptionUrl: String? = null,
 
         @field:SerializedName("language")
-        val language: Any? = null,
+        val language: String? = null,
 
         @field:SerializedName("branches_url")
         val branchesUrl: String? = null,
@@ -222,4 +224,4 @@ data class Parent(
 
         @field:SerializedName("forks_count")
         val forksCount: Int? = null
-)
+) : GitHubObject()

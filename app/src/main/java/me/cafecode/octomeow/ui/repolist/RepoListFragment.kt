@@ -2,7 +2,6 @@ package me.cafecode.octomeow.ui.repolist
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Context
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -16,11 +15,12 @@ import me.cafecode.octomeow.model.ObservingResult
 import me.cafecode.octomeow.ui.base.BaseFragment
 import me.cafecode.octomeow.ui.common.OnClickListener
 import me.cafecode.repository.model.Repo
+import org.parceler.Parcels
 import javax.inject.Inject
 
 class RepoListFragment : BaseFragment() {
 
-    private var listener: OnFragmentInteractionListener? = null
+    var listener: OnFragmentInteractionListener? = null
     lateinit var binding: RepoListFragmentBinding
     lateinit var viewModel: RepoListViewModel
 
@@ -35,15 +35,6 @@ class RepoListFragment : BaseFragment() {
 
     @Inject
     lateinit var hostname: String
-
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
-        }
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

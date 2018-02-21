@@ -1,10 +1,12 @@
 package me.cafecode.repository
 
 import android.app.Application
+import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
+import io.realm.Realm
 import me.cafecode.repository.api.GithubApi
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -31,4 +33,10 @@ open class RepositoryModule(app: Application) {
     @Provides
     open fun provideGithubApi(retrofit: Retrofit): GithubApi = retrofit.create(GithubApi::class.java)
 
+    @Singleton
+    @Provides
+    open fun provideRealm(context: Context): Realm {
+        Realm.init(context)
+        return Realm.getDefaultInstance()
+    }
 }

@@ -1,7 +1,9 @@
 package me.cafecode.repository.model
 
 import com.google.gson.annotations.SerializedName
+import org.parceler.Parcel
 
+@Parcel
 data class License(
 
         @field:SerializedName("html_url")
@@ -18,4 +20,4 @@ data class License(
 
         @field:SerializedName("url")
         val url: String? = null
-)
+) : GitHubObject()
