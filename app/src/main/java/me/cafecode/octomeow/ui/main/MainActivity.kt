@@ -1,6 +1,7 @@
 package me.cafecode.octomeow.ui.main
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import me.cafecode.octomeow.R
@@ -25,8 +26,12 @@ class MainActivity : AppCompatActivity(), RepoListFragment.OnFragmentInteraction
     override fun onRepoItemClickListener(repo: Repo) {
         Log.d("Repo", repo.fullName)
         val fragment = RepoDetailFragment.newInstance(repo)
+        replaceFragment(fragment)
+    }
+
+    fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-                .replace(R.id.content_layout, fragment)
-                .commit()
+            .replace(R.id.content_layout, fragment)
+            .commit()
     }
 }

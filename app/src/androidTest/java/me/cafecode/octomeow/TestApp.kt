@@ -5,12 +5,14 @@ import me.cafecode.repository.RepositoryModule
 
 class TestApp : OctomeowApplication() {
 
+    lateinit var component: TestAppComponent
+
     override fun onCreate() {
         super.onCreate()
-        DaggerTestAppComponent.builder()
-                .appModule(TestAppModule())
-                .repositoryModule(RepositoryModule(this))
-                .build()
-                .inject(this)
+        component = DaggerTestAppComponent.builder()
+            .appModule(TestAppModule())
+            .repositoryModule(RepositoryModule(this))
+            .build()
+            component.inject(this)
     }
 }
