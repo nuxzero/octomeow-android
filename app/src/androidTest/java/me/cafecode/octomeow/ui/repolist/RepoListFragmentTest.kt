@@ -15,6 +15,8 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.MockitoAnnotations
 import javax.inject.Inject
 
 @RunWith(AndroidJUnit4::class)
@@ -27,12 +29,17 @@ class RepoListFragmentTest {
     @Inject
     lateinit var hostname: String
 
+    @Mock
+    lateinit var viewModel: RepoListViewModel
+
     lateinit var fragment: RepoListFragment
 
     @Before
     fun setUp() {
+        MockitoAnnotations.initMocks(this)
         (activityRule.activity.application as TestApp).component.inject(this)
         fragment = RepoListFragment()
+        fragment.viewModel = viewModel
         activityRule.activity.replaceFragment(fragment)
     }
 
@@ -45,5 +52,9 @@ class RepoListFragmentTest {
         onView(withId(R.id.repo_list)).check(matches(isDisplayed()))
         assertEquals("api.testgithub.com/", fragment.hostname)
         assertEquals("api.testgithub.com/", hostname)
+    }
+
+    @Test
+    fun loadRepoList() {
     }
 }

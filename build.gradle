@@ -5,8 +5,8 @@ buildscript {
     ext.build_tools_version = '27.0.2'
     ext.min_sdk_version = 15
     ext.target_sdk_version = 27
-    ext.kotlin_version = '1.2.21'
-    ext.gradle_version = '3.0.1'
+    ext.kotlin_version = '1.2.41'
+    ext.gradle_version = '3.1.2'
     ext.android_support_version = '27.0.2'
     ext.dagger_version = '2.14.1'
     ext.junit_version = '4.12'
