@@ -6,6 +6,8 @@ import me.cafecode.octomeow.scheduler.BaseScheduler
 import me.cafecode.octomeow.scheduler.Scheduler
 import javax.inject.Singleton
 
+const val HOST_NAME = "api.github.con/"
+
 @Module
 open class AppModule {
 
@@ -15,5 +17,5 @@ open class AppModule {
 
     @Provides
     @Singleton
-    open fun provideHostName(): String = "api.github.con/"
+    open fun provideHostName(): String = HOST_NAME
 }

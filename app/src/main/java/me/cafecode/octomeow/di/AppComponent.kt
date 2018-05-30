@@ -5,6 +5,7 @@ import dagger.android.AndroidInjectionModule
 import me.cafecode.octomeow.OctomeowApplication
 import me.cafecode.octomeow.viewmodel.ViewModelModule
 import me.cafecode.repository.RepositoryModule
+import me.cafecode.repository.db.Storage
 import javax.inject.Singleton
 
 @Singleton

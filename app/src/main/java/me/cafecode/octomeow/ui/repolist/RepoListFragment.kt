@@ -15,10 +15,9 @@ import me.cafecode.octomeow.model.ObservingResult
 import me.cafecode.octomeow.ui.base.BaseFragment
 import me.cafecode.octomeow.ui.common.OnClickListener
 import me.cafecode.repository.model.Repo
-import org.parceler.Parcels
 import javax.inject.Inject
 
-class RepoListFragment : BaseFragment() {
+open class RepoListFragment : BaseFragment() {
 
     var listener: OnFragmentInteractionListener? = null
     lateinit var binding: RepoListFragmentBinding
@@ -29,7 +28,6 @@ class RepoListFragment : BaseFragment() {
             override fun onClick(data: Repo) {
                 listener?.onRepoItemClickListener(data)
             }
-
         })
     }
 

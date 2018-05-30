@@ -20,4 +20,5 @@ import javax.inject.Singleton
     RepositoryModule::class])
 interface TestAppComponent : AppComponent {
     fun inject(app: TestApp)
+    fun inject(test: RepoListFragmentTest)
 }
