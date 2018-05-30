@@ -1,7 +1,9 @@
 package me.cafecode.repository.model
 
 import com.google.gson.annotations.SerializedName
+import org.parceler.Parcel
 
+@Parcel
 data class Owner(
 
         @field:SerializedName("gists_url")
@@ -54,4 +56,4 @@ data class Owner(
 
         @field:SerializedName("organizations_url")
         val organizationsUrl: String? = null
-)
+) : GitHubObject()

@@ -6,10 +6,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import me.cafecode.octomeow.R
 import me.cafecode.octomeow.databinding.RepoListItemBinding
+import me.cafecode.octomeow.ui.common.OnClickListener
 import me.cafecode.repository.model.Repo
 
 
-class RepoListAdapter : RecyclerView.Adapter<RepoListViewHolder>() {
+class RepoListAdapter(val clickListener: OnClickListener<Repo>) : RecyclerView.Adapter<RepoListViewHolder>() {
 
     var repos: List<Repo>? = null
         set(value) {
@@ -19,6 +20,7 @@ class RepoListAdapter : RecyclerView.Adapter<RepoListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RepoListViewHolder {
         val itemBinding = DataBindingUtil.inflate<RepoListItemBinding>(LayoutInflater.from(parent!!.context), R.layout.repo_list_item, parent, false)
+        itemBinding.clickListener = clickListener
         return RepoListViewHolder(itemBinding)
     }
 

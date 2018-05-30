@@ -5,14 +5,23 @@
 
     <data>
 
+        <import type="me.cafecode.octomeow.ui.common.OnClickListener" />
+
+        <import type="me.cafecode.repository.model.Repo" />
+
+        <variable
+            name="clickListener"
+            type="OnClickListener&lt;Repo&gt;" />
+
         <variable
             name="repo"
-            type="me.cafecode.repository.model.Repo" />
+            type="Repo" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(repo)}">
 
         <TextView
             android:id="@+id/repo_name_text"

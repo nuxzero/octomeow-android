@@ -1,9 +1,12 @@
 package me.cafecode.repository.model
 
 import com.google.gson.annotations.SerializedName
+import io.realm.annotations.PrimaryKey
+import org.parceler.Parcel
 
+@Parcel
 data class Repo(
-
+        @PrimaryKey
         @field:SerializedName("id")
         val id: Int? = null,
 
@@ -20,7 +23,7 @@ data class Repo(
         val subscriptionUrl: String? = null,
 
         @field:SerializedName("language")
-        val language: Any? = null,
+        val language: String? = null,
 
         @field:SerializedName("branches_url")
         val branchesUrl: String? = null,
